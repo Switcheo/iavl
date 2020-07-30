@@ -1,10 +1,16 @@
 # Changelog
 
+## v0.14.0+pr299+pr312
+
+### Bug Fixes
+
+- \#288 Fix panics when generating proofs for keys that are all `0xFF`.
+
 ## 0.14.0 (July 2, 2020)
 
-**Important information:** the pruning functionality introduced with IAVL 0.13.0 via the options 
-`KeepEvery` and `KeepRecent` has problems with data corruption, performance, and memory usage. For 
-these reasons, this functionality has now been removed. All 0.13 users are urged to upgrade, and to 
+**Important information:** the pruning functionality introduced with IAVL 0.13.0 via the options
+`KeepEvery` and `KeepRecent` has problems with data corruption, performance, and memory usage. For
+these reasons, this functionality has now been removed. All 0.13 users are urged to upgrade, and to
 not change their pruning settings while on 0.13.
 
 Make sure to follow these instructions when upgrading, to avoid data corruption:
@@ -23,7 +29,7 @@ Make sure to follow these instructions when upgrading, to avoid data corruption:
   contains incorrect data that may cause data corruption when deleted, making the database
   unusable. For example, with `KeepEvery: 1000` then stopping 0.13 at version `7364` (saving
   `7000` to disk) and upgrading to 0.14 means version `7000` must never be deleted.
-  
+
   It may be possible to delete it if the exact same sequence of changes have been written to the
   newer versions as before the upgrade, and all versions between `7000` and `7364` are deleted
   first, but thorough testing and backups are recommended if attempting this.
@@ -38,7 +44,7 @@ See important upgrade information for 0.14.0 above.
 
 ### Improvements
 
-- [\#282](https://github.com/cosmos/iavl/pull/282) Add `Repair013Orphans()` to repair faulty 
+- [\#282](https://github.com/cosmos/iavl/pull/282) Add `Repair013Orphans()` to repair faulty
   orphans in a database last written to by IAVL 0.13.x
 
 ### Bug Fixes
@@ -53,20 +59,20 @@ Special thanks to external contributors on this release: @ridenaio
 
 ### Breaking Changes
 
-- [\#274](https://github.com/cosmos/iavl/pull/274) Remove pruning options `KeepEvery` and 
+- [\#274](https://github.com/cosmos/iavl/pull/274) Remove pruning options `KeepEvery` and
   `KeepRecent` (see warning above) and the `recentDB` parameter to `NewMutableTreeWithOpts()`.
 
 ### Improvements
 
-- [\#271](https://github.com/cosmos/iavl/pull/271) Add `MutableTree.DeleteVersions()` for deleting 
+- [\#271](https://github.com/cosmos/iavl/pull/271) Add `MutableTree.DeleteVersions()` for deleting
   multiple versions
 
-- [\#235](https://github.com/cosmos/iavl/pull/235) Reduce `ImmutableTree.Export()` buffer size from 
+- [\#235](https://github.com/cosmos/iavl/pull/235) Reduce `ImmutableTree.Export()` buffer size from
   64 to 32 nodes
 
 ### Bug Fixes
 
-- [\#275](https://github.com/cosmos/iavl/pull/275) Fix data corruption with 
+- [\#275](https://github.com/cosmos/iavl/pull/275) Fix data corruption with
   `LoadVersionForOverwriting`
 
 ## 0.13.3 (April 5, 2020)
