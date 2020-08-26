@@ -2,9 +2,13 @@
 
 ## v0.14.0+pr299+pr312
 
-### Bug Fixes
+### Improvements
 
-- \#288 Fix panics when generating proofs for keys that are all `0xFF`.
+- [\#312](https://github.com/cosmos/iavl/pull/312) Add `MutableTree.SetInitialVersion()` to set the
+  initial version after tree initialization.
+
+- [\#299](https://github.com/cosmos/iavl/pull/299) Added `Options.InitialVersion` to specify the
+  initial version for new IAVL trees.
 
 ## 0.14.0 (July 2, 2020)
 
